@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Handler;
 import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
@@ -17,18 +18,9 @@ import com.Harshit.expensify.Helper.MessageData;
 import com.Harshit.expensify.MainActivity;
 import com.Harshit.expensify.R;
 
-import java.util.Date;
-
 public class ShowNotification {
 
-    public static void showNotification(Context context, MessageData messageData) {
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "default")
-                .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle(messageData.getBankName())
-                .setContentText(messageData.getAmount()+"")
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true);
+    public static void showNotification(Context context, NotificationCompat.Builder builder) {
 
         Intent launchIntent = new Intent(context, MainActivity.class);
         launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -46,9 +38,34 @@ public class ShowNotification {
             Log.d("SMS_RECEIVE", "Error");
             return;
         }
-        notificationManager.notify((int) System.currentTimeMillis(), builder.build());
+        int notificationId = (int) System.currentTimeMillis();
+        notificationManager.notify(notificationId, builder.build());
+        new Handler().postDelayed(() -> notificationManager.cancel(notificationId), 10000);
 
     }
+
+    public static void buildNotificationForMessageData(Context context, MessageData messageData) {
+        NotificationCompat.Builder builder =  buildNotification(context, messageData.getBankName(),messageData.getAmount()+"");
+        showNotification(context, builder);
+    }
+
+    public static void buildCustomNotification(Context context, String title, String message) {
+        NotificationCompat.Builder builder =  buildNotification(context, title, message);
+        showNotification(context, builder);
+
+    }
+
+    private static NotificationCompat.Builder buildNotification(Context context, String title, String message) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "default")
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+
+        return builder;
+    }
+
 
 
 }

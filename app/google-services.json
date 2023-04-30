@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "748559585460",
+    "firebase_url": "https://expensify-harshit-default-rtdb.firebaseio.com",
+    "project_id": "expensify-harshit",
+    "storage_bucket": "expensify-harshit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748559585460:android:0aecedbe116c3479eec7e1",
+        "android_client_info": {
+          "package_name": "com.Harshit.expensify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748559585460-j6ss7g0rsno1ot2j320dve3c98td3ltj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXRG4O18hptlf6ypLm3dBZer7KtpcWFXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748559585460-j6ss7g0rsno1ot2j320dve3c98td3ltj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

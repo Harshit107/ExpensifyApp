@@ -38,6 +38,7 @@ public class SmsReceiver extends BroadcastReceiver {
                     String smsBody = smsMessage.getMessageBody();
                     if (smsBody.toLowerCase().contains(KEYWORD_DEBIT)) {
                         ExpenseHelper.handleSMS(context, smsBody);
+
                     }
                 }
             }

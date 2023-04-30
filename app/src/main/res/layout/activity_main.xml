@@ -7,12 +7,24 @@
     android:background="#ff00ff"
     tools:context=".MainActivity">
 
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is Main page"
+        android:padding="16dp">
 
-        android:textAlignment="center"
-        android:textSize="20dp"/>
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:background="#7BCA20"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_centerInParent="true" />
+
+
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

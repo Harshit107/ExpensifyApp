@@ -13,7 +13,8 @@ public class ExpenseHelper {
 
     public static void handleSMS(Context context, String smsBody) {
         MessageData messageData = processSMS(smsBody);
-        ShowNotification.showNotification(context, messageData);
+        ShowNotification.buildNotificationForMessageData(context, messageData );
+        ExpenseDatabase.addNewExpenseToDataBase(context, messageData);
 
     }
     public static MessageData processSMS(String message) {
